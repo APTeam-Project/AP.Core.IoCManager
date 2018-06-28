@@ -41,13 +41,13 @@ var someService = IoC.Container.Resolve<ISomeService>();
 The current web container implements Microsoft's DI interface and supports the replacement of containers used in Asp.Net Core.
 ### Registration IServiceCollectioncan be used
 ```
- public IServiceProvider ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-            IoC.Container.RegisterSingleton<IDemoService, DemoService>();
-            IoC.Container.RegisterFromServiceCollection(services);
-            return IoC.Container.AsServiceProvider();
-        }
+    public IServiceProvider ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc();
+        IoC.Container.RegisterSingleton<IDemoService, DemoService>();
+        IoC.Container.RegisterFromServiceCollection(services);
+        return IoC.Container.AsServiceProvider();
+    }
 ```
 // Get multiple times will return the same instance 
 ```
@@ -57,7 +57,7 @@ The Asp.Net Core project created by the current project builder will replace the
 
 # Controller Inject Service
 ```
-public class ValuesController : ControllerBase
+    public class ValuesController : ControllerBase
     {
         private readonly IDemoService _demoSrv;
         public ValuesController(IDemoService demoSrv)
