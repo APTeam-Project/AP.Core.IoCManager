@@ -45,7 +45,7 @@ The current web container implements Microsoft's DI interface and supports the r
     {
         services.AddMvc();
         IoC.Container.RegisterSingleton<IDemoService, DemoService>();
-        IoC.Container.RegisterFromServiceCollection(services);
+        IoC.Container.Populate(services);
         return IoC.Container.AsServiceProvider();
     }
 ```
